@@ -1,0 +1,17 @@
+/* client/src/styles/index.css */
+
+/* Import Tailwind CSS directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-white text-gray-900; /* Use valid Tailwind classes */
+}
+
+/* Custom button style using Tailwind defaults */
+.btn-primary {
+  @apply bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition duration-300 ease-in-out;
+}
