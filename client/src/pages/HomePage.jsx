@@ -11,7 +11,7 @@ const HomePage = () => {
       {/* Main content */}
       <div className="z-10 text-center max-w-3xl mx-auto space-y-6 animate-fade-in-up">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight">
-          Hi, I'm <span className="text-blue-500">Your Name</span>
+          Hi, I'm <span className="text-blue-500">Charitha</span>
         </h1>
 
         <p className="text-lg md:text-xl text-slate-300">

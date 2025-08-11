@@ -1,77 +1,105 @@
-// client/src/pages/SkillsPage.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 
+// React Icons
+import {
+  FaReact, FaNodeJs, FaGitAlt, FaHtml5, FaCss3Alt, FaJs,
+} from "react-icons/fa";
+import {
+  SiTailwindcss, SiRedux, SiMongodb, SiMongoose, SiVite, SiPostman,
+  SiNetlify, SiRender, SiFigma, SiExpress, SiAxios
+} from "react-icons/si";
+import { VscCode } from "react-icons/vsc";
+import { MdOutlineApi, MdOutlineDesignServices } from "react-icons/md";
+import { PiBracketsCurlyBold } from "react-icons/pi";
+
+// Map skill names to icons
+const skillIcons = {
+  "React.js": <FaReact className="text-blue-500" />,
+  "JavaScript (ES6+)": <FaJs className="text-yellow-500" />,
+  "HTML5": <FaHtml5 className="text-orange-600" />,
+  "CSS3": <FaCss3Alt className="text-blue-600" />,
+  "Tailwind CSS": <SiTailwindcss className="text-teal-400" />,
+  "Vite": <SiVite className="text-purple-500" />,
+  "Redux": <SiRedux className="text-purple-600" />,
+  "Axios": <SiAxios className="text-blue-400" />,
+  "Node.js": <FaNodeJs className="text-green-600" />,
+  "Express.js": <SiExpress className="text-gray-800" />,
+  "MongoDB": <SiMongodb className="text-green-500" />,
+  "Mongoose": <SiMongoose className="text-red-800" />,
+  "RESTful APIs": <MdOutlineApi className="text-indigo-600" />,
+  "Git & GitHub": <FaGitAlt className="text-orange-500" />,
+  "VS Code": <VscCode className="text-blue-500" />,
+  "Postman": <SiPostman className="text-orange-600" />,
+  "Netlify": <SiNetlify className="text-teal-500" />,
+  "Render": <SiRender className="text-teal-300" />,
+  "Figma": <SiFigma className="text-pink-500" />,
+  "Data Structures": <PiBracketsCurlyBold className="text-gray-700" />,
+  "Problem Solving": <PiBracketsCurlyBold className="text-blue-700" />,
+  "Responsive Design": <MdOutlineDesignServices className="text-indigo-500" />,
+};
+
 const skillsData = {
   "Frontend": [
-    { name: "React.js", level: "Advanced" },
-    { name: "JavaScript (ES6+)", level: "Advanced" },
-    { name: "HTML5", level: "Advanced" },
-    { name: "CSS3", level: "Advanced" },
-    { name: "Tailwind CSS", level: "Advanced" },
-    { name: "Vite", level: "Intermediate" },
-    { name: "Redux", level: "Intermediate" },
-    { name: "Axios", level: "Advanced" },
+    "React.js", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS", "Vite", "Redux", "Axios"
   ],
   "Backend": [
-    { name: "Node.js", level: "Advanced" },
-    { name: "Express.js", level: "Advanced" },
-    { name: "MongoDB", level: "Advanced" },
-    { name: "Mongoose", level: "Advanced" },
-    { name: "RESTful APIs", level: "Advanced" },
+    "Node.js", "Express.js", "MongoDB", "Mongoose", "RESTful APIs"
   ],
   "Tools & Platforms": [
-    { name: "Git & GitHub", level: "Advanced" },
-    { name: "VS Code", level: "Advanced" },
-    { name: "Postman / Thunder Client", level: "Advanced" },
-    { name: "Netlify / Vercel", level: "Intermediate" },
-    { name: "Heroku / Render", level: "Intermediate" },
-    { name: "Figma (Basic)", level: "Beginner" },
+    "Git & GitHub", "VS Code", "Postman", "Netlify", "Render", "Figma"
   ],
   "Other": [
-    { name: "Data Structures & Algorithms", level: "Intermediate" },
-    { name: "Problem Solving", level: "Advanced" },
-    { name: "Responsive Design", level: "Advanced" },
+    "Data Structures", "Problem Solving", "Responsive Design"
   ]
 };
 
 const SkillsPage = () => {
-  return (
-    <section className="bg-gradient-to-br from-white to-indigo-50 py-20 px-4">
-      <motion.h2
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-5xl font-bold text-center text-indigo-700 mb-12"
-      >
-        My Skills
-      </motion.h2>
+  const allSkills = Object.values(skillsData).flat();
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto">
-        {Object.entries(skillsData).map(([category, skills]) => (
-          <motion.div
-            key={category}
-            whileHover={{ scale: 1.02 }}
-            transition={{ type: 'spring', stiffness: 300 }}
-            className="bg-white border-t-4 border-indigo-500 rounded-2xl shadow-xl p-6 hover:shadow-2xl transition-shadow duration-300"
-          >
-            <h3 className="text-2xl font-bold text-indigo-600 mb-4">{category}</h3>
-            <ul className="space-y-3">
-              {skills.map((skill, index) => (
-                <li key={index} className="flex justify-between items-center text-gray-800">
-                  <span>{skill.name}</span>
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium
-                    ${skill.level === 'Advanced' ? 'bg-green-100 text-green-800' : ''}
-                    ${skill.level === 'Intermediate' ? 'bg-blue-100 text-blue-800' : ''}
-                    ${skill.level === 'Beginner' ? 'bg-yellow-100 text-yellow-800' : ''}
-                  `}>
-                    {skill.level}
-                  </span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
+  return (
+    <section className="min-h-screen py-20 px-6 bg-gradient-to-br from-white via-indigo-50 to-purple-100">
+      <div className="max-w-7xl mx-auto">
+        <motion.h2
+          className="text-5xl font-extrabold text-center text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 mb-10"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          🚀 Professional Skillset
+        </motion.h2>
+
+        <motion.p
+          className="text-center text-gray-600 text-lg max-w-3xl mx-auto mb-14"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+        >
+          Here are the tools and technologies I specialize in. I’m always eager to learn and explore more!
+        </motion.p>
+
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+        >
+          {allSkills.map((skill, index) => (
+            <motion.div
+              key={skill}
+              className="bg-white rounded-2xl shadow-md border border-gray-100 p-6 flex flex-col items-center justify-center text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 group"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 15, delay: index * 0.02 }}
+            >
+              <div className="text-5xl mb-3 group-hover:animate-pulse text-gray-600 group-hover:text-indigo-500 transition-colors duration-300">
+                {skillIcons[skill]}
+              </div>
+              <p className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
+                {skill}
+              </p>
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );

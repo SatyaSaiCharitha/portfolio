@@ -17,7 +17,7 @@ const Footer = () => {
         {/* Social Links */}
         <div className="flex justify-center space-x-6 mt-4 text-slate-400">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/SatyaSaiCharitha"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-indigo-400 transition duration-300 flex items-center space-x-1"
@@ -26,7 +26,7 @@ const Footer = () => {
             <span>GitHub</span>
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/sai-charitha-a20827298/"
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-sky-400 transition duration-300 flex items-center space-x-1"

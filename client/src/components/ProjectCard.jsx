@@ -1,54 +1,49 @@
-// client/src/components/ProjectCard.jsx
 import React from 'react';
+import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
 
 const ProjectCard = ({ project }) => {
-  // Destructure project properties for easier access
   const { title, description, image, technologies, projectUrl, githubUrl } = project;
 
   return (
-    <div className="bg-white rounded-lg shadow-xl overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-      {/* Project Image */}
+    <div className="bg-white rounded-2xl shadow-md overflow-hidden transition-transform transform hover:-translate-y-1 hover:shadow-xl">
+      {/* Image */}
       <img
         src={image}
-        alt={title}
-        className="w-full h-48 object-cover object-center"
+        alt={title || 'Project Image'}
+        className="w-full h-48 object-cover"
         onError={(e) => {
-          e.target.onerror = null; // Prevent infinite loop
-          e.target.src = `https://placehold.co/400x300/E0E0E0/333333?text=No+Image`; // Placeholder on error
+          e.target.onerror = null;
+          e.target.src = `https://placehold.co/400x300/E0E0E0/333333?text=No+Image`;
         }}
       />
 
+      {/* Content */}
       <div className="p-6">
-        {/* Project Title */}
-        <h3 className="text-2xl font-bold text-dark mb-2">{title}</h3>
+        <h3 className="text-xl font-semibold text-slate-800 mb-2">{title}</h3>
+        <p className="text-gray-600 text-sm mb-4 line-clamp-3">{description}</p>
 
-        {/* Project Description */}
-        <p className="text-gray-700 text-base mb-4 line-clamp-3">
-          {description}
-        </p>
-
-        {/* Technologies Used */}
+        {/* Technologies */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {technologies.map((tech, index) => (
+          {technologies?.map((tech, index) => (
             <span
               key={index}
-              className="bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full shadow-sm"
+              className="bg-slate-100 text-slate-700 text-xs font-medium px-3 py-1 rounded-full border border-slate-200"
             >
               {tech}
             </span>
           ))}
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex justify-between items-center mt-4">
+        {/* Buttons */}
+        <div className="flex justify-start gap-4">
           {projectUrl && (
             <a
               href={projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary text-sm"
+              className="inline-flex items-center gap-2 text-sm text-indigo-600 hover:text-indigo-800 transition"
             >
-              View Live
+              Live <FaExternalLinkAlt className="text-xs" />
             </a>
           )}
           {githubUrl && (
@@ -56,9 +51,9 @@ const ProjectCard = ({ project }) => {
               href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-primary bg-gray-600 hover:bg-gray-700 text-sm"
+              className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-black transition"
             >
-              GitHub
+              GitHub <FaGithub className="text-sm" />
             </a>
           )}
         </div>
