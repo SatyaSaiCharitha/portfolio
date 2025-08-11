@@ -24,7 +24,7 @@ const AboutPage = () => {
             className="md:w-1/3 mb-8 md:mb-0 flex justify-center"
           >
             <img
-              src="https://res.cloudinary.com/de32tbuxs/image/upload/v1754934944/cherrywh_figfgn.jpg"
+              src="https://res.cloudinary.com/dkpjimiip/image/upload/v1754683787/InShot_20250809_013725742_bn64ma.png"
               alt="Sai Charitha"
               className="w-64 h-64 rounded-full object-cover shadow-2xl border-4 border-indigo-500"
             />
