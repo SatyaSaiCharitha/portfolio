@@ -10,10 +10,6 @@ const Footer = () => {
         <p className="text-slate-400">
           &copy; {currentYear} <span className="text-indigo-400 font-semibold">Sai Charitha</span>. All rights reserved.
         </p>
-        <p className="mt-2 text-slate-400">
-          Built with <span className="text-pink-400 text-lg">&hearts;</span> using MERN Stack & Tailwind CSS
-        </p>
-
         {/* Social Links */}
         <div className="flex justify-center space-x-6 mt-4 text-slate-400">
           <a
